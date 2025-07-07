@@ -36,6 +36,7 @@ import appInit from './appInit.js';
 import OpenIdConnectRoutes from './utils/OpenIdConnectRoutes';
 import { ShepherdJourneyProvider } from 'react-shepherd';
 import './App.css';
+import ButterflyProvider from './butterfly/ButterflyProvider';
 
 let commandsManager: CommandsManager,
   extensionManager: ExtensionManager,
@@ -173,8 +174,14 @@ function App({
         basename={routerBasename}
         future={routerFutureFlags}
       >
-        {authRoutes}
-        {appRoutes}
+        <ButterflyProvider
+          userAuthenticationService={userAuthenticationService}
+          commandsManager={commandsManager}
+          extensionsManager={extensionManager}
+        >
+          {authRoutes}
+          {appRoutes}
+        </ButterflyProvider>
       </BrowserRouter>
     </CombinedProviders>
   );
