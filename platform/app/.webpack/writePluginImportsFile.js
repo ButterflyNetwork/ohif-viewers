@@ -10,8 +10,16 @@ const extractName = val => (typeof val === 'string' ? val : val.packageName);
 
 const publicURL = process.env.PUBLIC_URL || '/';
 
-function isAbsolutePath(path) {
-  return path.startsWith('http') || path.startsWith('/');
+function makeImportPath(path) {
+  if (path.startsWith('http')) {
+    return path;
+  }
+
+  if ( path.startsWith('/')) {
+    path = path.slice(1);
+  }
+
+  return `${publicURL}${path}`
 }
 
 function constructLines(input, categoryName) {
@@ -77,7 +85,7 @@ function getRuntimeLoadModesExtensions(modules) {
     if (module.importPath) {
       dynamicLoad.push(
         `  if( module==="${packageName}") {`,
-        `    const imported = await window.browserImportFunction('${isAbsolutePath(module.importPath) ? '' : publicURL}${module.importPath}');`,
+        `    const imported = await window.browserImportFunction('${makeImportPath(module.importPath)}');`,
         '    return ' +
           (module.globalName
             ? `window["${module.globalName}"];`
