@@ -143,7 +143,7 @@ function createDicomWebApi(dicomWebConfig: DicomWebConfig, servicesManager) {
       dicomWebConfigCopy = JSON.parse(JSON.stringify(dicomWebConfig));
 
       getAuthorizationHeader = () => {
-        const xhrRequestHeaders: HeadersInterface = {};
+        let xhrRequestHeaders: HeadersInterface = {};
         const authHeaders = userAuthenticationService.getAuthorizationHeader();
         if (authHeaders) {
           xhrRequestHeaders = {
