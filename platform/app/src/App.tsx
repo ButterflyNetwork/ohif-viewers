@@ -178,6 +178,7 @@ function App({
           userAuthenticationService={userAuthenticationService}
           commandsManager={commandsManager}
           extensionsManager={extensionManager}
+          servicesManager={servicesManager}
         >
           {authRoutes}
           {appRoutes}
