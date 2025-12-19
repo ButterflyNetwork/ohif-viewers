@@ -2,7 +2,7 @@ import React from 'react';
 import { setAnnotationLabel } from '@cornerstonejs/tools/utilities';
 import { annotation } from '@cornerstonejs/tools';
 import { LabellingFlow } from '@ohif/ui-next';
-import { InputDialog } from '@ohif/ui-next';
+import { InlineAnnotationInput } from '@ohif/ui-next';
 
 interface InputDialogDefaultProps {
   hide: () => void;
@@ -15,52 +15,37 @@ interface InputDialogDefaultProps {
 function InputDialogDefault({
   hide,
   onSave,
-  placeholder = 'Enter value',
+  placeholder = 'Enter annotation text',
   defaultValue = '',
   submitOnEnter,
 }: InputDialogDefaultProps) {
   return (
-    <InputDialog
-      submitOnEnter={submitOnEnter}
+    <InlineAnnotationInput
+      onSave={onSave}
+      onCancel={hide}
+      hide={hide}
       defaultValue={defaultValue}
-    >
-      <InputDialog.Field>
-        <InputDialog.Input placeholder={placeholder} />
-      </InputDialog.Field>
-      <InputDialog.Actions>
-        <InputDialog.ActionsSecondary onClick={hide}>Cancel</InputDialog.ActionsSecondary>
-        <InputDialog.ActionsPrimary
-          onClick={value => {
-            onSave(value);
-            hide();
-          }}
-        >
-          Save
-        </InputDialog.ActionsPrimary>
-      </InputDialog.Actions>
-    </InputDialog>
+      placeholder={placeholder}
+      submitOnEnter={submitOnEnter}
+    />
   );
 }
 
 /**
- * Shows an input dialog for entering text with customizable options
+ * Shows an inline annotation input for entering text
  * @param uiDialogService - Service for showing UI dialogs
- * @param onSave - Callback function called when save button is clicked with entered value
  * @param defaultValue - Initial value to show in input field
- * @param title - Title text to show in dialog header
  * @param placeholder - Placeholder text for input field
  * @param submitOnEnter - Whether to submit dialog when Enter key is pressed
  */
 export async function callInputDialog({
   uiDialogService,
   defaultValue = '',
-  title = 'Annotation',
-  placeholder = '',
+  placeholder = 'Enter annotation text',
   submitOnEnter = true,
 }: {
   uiDialogService: AppTypes.UIDialogService;
   defaultValue?: string;
-  title?: string;
   placeholder?: string;
   submitOnEnter?: boolean;
 }) {
@@ -70,7 +55,7 @@ export async function callInputDialog({
     uiDialogService.show({
       id: dialogId,
       content: InputDialogDefault,
-      title: title,
+      unstyled: true,
       shouldCloseOnEsc: true,
       contentProps: {
         onSave: value => {

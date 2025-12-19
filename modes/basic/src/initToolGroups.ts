@@ -19,13 +19,14 @@ function initDefaultToolGroup(extensionManager, toolGroupService, commandsManage
 
   const tools = {
     active: [
-      {
-        toolName: toolNames.WindowLevel,
-        bindings: [{ mouseButton: Enums.MouseBindings.Primary }],
-      },
+      // WindowLevel tool disabled - no mouse binding
+      // {
+      //   toolName: toolNames.WindowLevel,
+      //   bindings: [{ mouseButton: Enums.MouseBindings.Primary }],
+      // },
       {
         toolName: toolNames.Pan,
-        bindings: [{ mouseButton: Enums.MouseBindings.Auxiliary }],
+        bindings: [{ mouseButton: Enums.MouseBindings.Primary }],
       },
       {
         toolName: toolNames.Zoom,
@@ -37,6 +38,7 @@ function initDefaultToolGroup(extensionManager, toolGroupService, commandsManage
       },
     ],
     passive: [
+      { toolName: toolNames.WindowLevel },
       { toolName: toolNames.Length },
       {
         toolName: toolNames.ArrowAnnotate,
@@ -82,10 +84,7 @@ function initDefaultToolGroup(extensionManager, toolGroupService, commandsManage
       { toolName: toolNames.LivewireContour },
       { toolName: toolNames.WindowLevelRegion },
     ],
-    enabled: [
-      { toolName: toolNames.ImageOverlayViewer },
-      { toolName: toolNames.ReferenceLines },
-    ],
+    enabled: [{ toolName: toolNames.ImageOverlayViewer }, { toolName: toolNames.ReferenceLines }],
     disabled: [
       {
         toolName: toolNames.AdvancedMagnify,
@@ -115,19 +114,20 @@ function initSRToolGroup(extensionManager, toolGroupService) {
   const { toolNames, Enums } = CS3DUtilityModule.exports;
   const tools = {
     active: [
-      {
-        toolName: toolNames.WindowLevel,
-        bindings: [
-          {
-            mouseButton: Enums.MouseBindings.Primary,
-          },
-        ],
-      },
+      // WindowLevel tool disabled - no mouse binding
+      // {
+      //   toolName: toolNames.WindowLevel,
+      //   bindings: [
+      //     {
+      //       mouseButton: Enums.MouseBindings.Primary,
+      //     },
+      //   ],
+      // },
       {
         toolName: toolNames.Pan,
         bindings: [
           {
-            mouseButton: Enums.MouseBindings.Auxiliary,
+            mouseButton: Enums.MouseBindings.Primary,
           },
         ],
       },
@@ -179,13 +179,14 @@ function initMPRToolGroup(extensionManager, toolGroupService, commandsManager) {
 
   const tools = {
     active: [
-      {
-        toolName: toolNames.WindowLevel,
-        bindings: [{ mouseButton: Enums.MouseBindings.Primary }],
-      },
+      // WindowLevel tool disabled - no mouse binding
+      // {
+      //   toolName: toolNames.WindowLevel,
+      //   bindings: [{ mouseButton: Enums.MouseBindings.Primary }],
+      // },
       {
         toolName: toolNames.Pan,
-        bindings: [{ mouseButton: Enums.MouseBindings.Auxiliary }],
+        bindings: [{ mouseButton: Enums.MouseBindings.Primary }],
       },
       {
         toolName: toolNames.Zoom,
@@ -197,6 +198,7 @@ function initMPRToolGroup(extensionManager, toolGroupService, commandsManager) {
       },
     ],
     passive: [
+      { toolName: toolNames.WindowLevel },
       { toolName: toolNames.Length },
       {
         toolName: toolNames.ArrowAnnotate,
