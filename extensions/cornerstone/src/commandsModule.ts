@@ -805,7 +805,7 @@ function commandsModule({
         const label = await callInputDialog({
           uiDialogService,
           title: i18n.t('Tools:Edit Arrow Text'),
-          placeholder: data?.data?.label || i18n.t('Tools:Enter new text'),
+          placeholder: data?.data?.label || i18n.t('Tools:Enter annotation text'),
           defaultValue: data?.data?.label || '',
         });
 

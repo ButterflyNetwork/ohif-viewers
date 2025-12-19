@@ -214,20 +214,23 @@ export const toolbarSections = {
     'Zoom',
     'Pan',
     'TrackballRotate',
-    'WindowLevel',
+    // 'WindowLevel', // Window level button disabled
     'Capture',
     'Layout',
     'Crosshairs',
     'MoreTools',
   ],
 
-  [TOOLBAR_SECTIONS.viewportActionMenu.topLeft]: ['orientationMenu', 'dataOverlayMenu'],
+  // Orientation and data overlay menus disabled
+  [TOOLBAR_SECTIONS.viewportActionMenu.topLeft]: [
+    /* 'orientationMenu', 'dataOverlayMenu' */
+  ],
 
   [TOOLBAR_SECTIONS.viewportActionMenu.bottomMiddle]: ['AdvancedRenderingControls'],
 
   AdvancedRenderingControls: [
-    'windowLevelMenuEmbedded',
-    'voiManualControlMenu',
+    // 'windowLevelMenuEmbedded', // Window level menu disabled
+    // 'voiManualControlMenu', // VOI manual control disabled
     'Colorbar',
     'opacityMenu',
     'thresholdMenu',
@@ -239,7 +242,10 @@ export const toolbarSections = {
     'navigationComponent',
   ],
 
-  [TOOLBAR_SECTIONS.viewportActionMenu.bottomLeft]: ['windowLevelMenu'],
+  // Window level menu disabled in bottom left
+  [TOOLBAR_SECTIONS.viewportActionMenu.bottomLeft]: [
+    /* 'windowLevelMenu' */
+  ],
 
   MeasurementTools: [
     'Length',

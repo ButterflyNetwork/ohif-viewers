@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import ViewportImageScrollbar from './ViewportImageScrollbar';
 import CustomizableViewportOverlay from './CustomizableViewportOverlay';
-import ViewportOrientationMarkers from './ViewportOrientationMarkers';
+// import ViewportOrientationMarkers from './ViewportOrientationMarkers';
 import ViewportImageSliceLoadingIndicator from './ViewportImageSliceLoadingIndicator';
 
 function CornerstoneOverlays(props: withAppTypes) {
@@ -68,6 +68,7 @@ function CornerstoneOverlays(props: withAppTypes) {
         element={element}
       />
 
+      {/* Orientation markers disabled
       <ViewportOrientationMarkers
         imageSliceData={imageSliceData}
         element={element}
@@ -75,6 +76,7 @@ function CornerstoneOverlays(props: withAppTypes) {
         servicesManager={servicesManager}
         viewportId={viewportId}
       />
+      */}
     </div>
   );
 }
